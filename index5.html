@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anand - Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('YOUR_IMAGE_LINK_HERE') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      line-height: 1.6;
+      position: relative;
+    }
+    /* Dark overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+      border-radius: 0 0 20px 20px;
+    }
+    header h1 { font-size: 2.8rem; }
+    header p { font-size: 1.2rem; opacity: 0.9; }
+    .typing {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #48cae4;
+      border-right: 3px solid #48cae4;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(30, end) forwards, blink 0.7s infinite;
+      margin-top: 0.5rem;
+    }
+    @keyframes typing { to { width: 100%; } }
+    @keyframes blink { 50% { border-color: transparent; } }
+
+    nav {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 0.5rem;
+      text-align: center;
+      border-radius: 0 0 10px 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover { color: #48cae4; }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    .about img {
+      width: 160px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 4px solid #fff;
+    }
+    .skills, .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      color: #000;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px #48cae4;
+    }
+    footer {
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-radius: 20px 20px 0 0;
+    }
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    [data-animate].active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Anand</h1>
+  <p>B.E. CSE (Cyber Security) | 2nd Year Student at SVHEC</p>
+  <div class="typing">Welcome to my portfolio website!</div>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about" class="about" data-animate>
+  <div style="text-align:center;">
+    <img src="https://via.placeholder.com/160" alt="Anand">
+    <h2>About Me</h2>
+    <p>Hello! I’m <strong>Anand</strong> from Thiruchengode.<br>
+       I’m currently pursuing my 2nd year B.E. in Computer Science & Engineering (Cyber Security)  
+       at SVHEC. I have a passion for technology, problem-solving, and creating modern web solutions.</p>
+  </div>
+</section>
+
+<section id="skills" data-animate>
+  <h2 style="text-align:center;">Skills & Interests</h2>
+  <div class="skills">
+    <div class="card">
+      <h3>Cyber Security</h3>
+      <p>Learning ethical hacking, network security, and data protection.</p>
+    </div>
+    <div class="card">
+      <h3>Web Development</h3>
+      <p>Building modern, responsive websites with HTML, CSS, and JavaScript.</p>
+    </div>
+    <div class="card">
+      <h3>Problem Solving</h3>
+      <p>Enjoy working on coding challenges and innovative projects.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-animate>
+  <h2 style="text-align:center;">Contact Me</h2>
+  <div class="contact">
+    <div class="card">
+      <p>Email: <strong>you@example.com</strong></p>
+    </div>
+    <div class="card">
+      <p>LinkedIn: <strong>linkedin.com/in/yourprofile</strong></p>
+    </div>
+    <div class="card">
+      <p>GitHub: <strong>github.com/yourusername</strong></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Anand. All rights reserved.</p>
+</footer>
+
+<script>
+  const elements = document.querySelectorAll("[data-animate]");
+  const showOnScroll = () => {
+    const triggerBottom = window.innerHeight * 0.85;
+    elements.forEach(el => {
+      const boxTop = el.getBoundingClientRect().top;
+      if (boxTop < triggerBottom) el.classList.add("active");
+    });
+  };
+  window.addEventListener("scroll", showOnScroll);
+  showOnScroll();
+</script>
+
+</body>
+</html>
